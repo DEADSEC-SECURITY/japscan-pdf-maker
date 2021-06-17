@@ -20,6 +20,7 @@ To change the url open `main.py` and in the end you should see the following:
 ```
 between the quotes put your url or if there is an url already there you can change it to the one you prefer.
 
+To run it:
 ```bash
 sudo python3 main.py
 ```
