@@ -61,7 +61,7 @@ class Mike():
         imgs = os.listdir(self.folder)
         imgs_names = [int(x.replace('.jpg', '')) for x in imgs]
         imgs_names.sort()
-        imgs = [os.path.join(self.folder, str(x) + '.jpg') for x in imgs_names if x]
+        imgs = [os.path.join(self.folder, str(x) + '.jpg') for x in imgs_names]
         del imgs_names
         pdf_file = os.path.join(BASE_PATH, 'pdfs', f'{self.title}.pdf')
 
@@ -84,8 +84,9 @@ class Mike():
         self.browser.quit()
         sys.exit()
 
-scraper = Mike(url='https://www.japscan.ws/lecture-en-ligne/tokyo-ghoul-re/132/')
-while True:
-    scraper.filter_requests()
-    scraper.page += 1
-    scraper.get_url()
+if __name__ == '__main__':
+    scraper = Mike(url='https://www.japscan.ws/lecture-en-ligne/tokyo-ghoul-re/132/')
+    while True:
+        scraper.filter_requests()
+        scraper.page += 1
+        scraper.get_url()
