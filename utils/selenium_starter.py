@@ -18,7 +18,7 @@ def start():
         chrome = os.path.join(DRIVERS, 'chromedriver.exe')
         browser = webdriver.Chrome(executable_path=chrome, options=options)
     else:
-        chrome = os.path.join(DRIVERS, 'chromedrive')
+        chrome = os.path.join(DRIVERS, 'chromedriver')
         browser = webdriver.Chrome(executable_path=chrome, options=options)
 
     browser.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
