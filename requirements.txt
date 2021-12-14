@@ -9,7 +9,7 @@ hpack==4.0.0
 hyperframe==6.0.1
 img2pdf==0.4.1
 kaitaistruct==0.9
-lxml==4.6.3
+lxml==4.6.5
 pikepdf==2.12.2
 Pillow==8.2.0
 pyasn1==0.4.8
