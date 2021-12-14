@@ -48,7 +48,9 @@ class Mike():
         base_url = 'cdn.statically.io/img/'
         for x in requests:
             if x.response:
+                # Check if the request contains the base url for the images
                 if base_url in x.url:
+                    # Check if the image being viewd wasnt added yet
                     if x.url not in self.imgs:
                         self.imgs.append(x.url)
 
@@ -84,7 +86,23 @@ class Mike():
         self.browser.quit()
         sys.exit()
 
+def check_local_repo():
+    # Create the image folder if it doesnt exists
+    images_folder = os.path.join(BASE_PATH, 'images')
+    if not os.path.isdir(images_folder):
+        os.mkdir(images_folder)
+
+    # Create the drivers folder if it doesnt exist
+    drivers_folder = os.path.join(BASE_PATH, 'drivers')
+    if not os.path.isdir(drivers_folder):
+        os.mkdir(drivers_folder)
+        print('Please go to https://chromedriver.chromium.org/downloads and download the driver for you system')
+        print('Please save the driver binary to the drivers folder with the name "chromedriver.exe" for windows and "chromedriver" for linux and maxOS')
+        sys.exit()
+
 if __name__ == '__main__':
+    # Check if all folders are created properly
+    check_local_repo()
     scraper = Mike(url='https://www.japscan.ws/lecture-en-ligne/tokyo-ghoul-re/132/')
     while True:
         scraper.filter_requests()
