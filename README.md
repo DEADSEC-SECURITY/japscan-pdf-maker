@@ -1,4 +1,4 @@
-# JAPSCAN PDF MAKER ![Version](https://img.shields.io/badge/Version-v0.0.3-orange?style=flat-square&url=https://github.com/DEADSEC-SECURITY/CODEX/blob/master/ChangeLog.md) ![Python_Version](https://img.shields.io/badge/Python-3.7%2B-blue?style=flat-square) ![License](https://img.shields.io/badge/License-MIT-red?style=flat-square) ![Donate](https://img.shields.io/badge/Donate-Crypto-yellow?style=flat-square)
+# JAPSCAN PDF MAKER ![Version](https://img.shields.io/badge/Version-v0.0.3-orange?style=flat-square&url=https://github.com/DEADSEC-SECURITY/CODEX/blob/master/ChangeLog.md) ![Python_Version](https://img.shields.io/badge/Python-3.7%2B-blue?style=flat-square) ![License](https://img.shields.io/badge/License-MIT-red?style=flat-square) ![Donate](https://img.shields.io/badge/Donate-Crypto-yellow?style=flat-square) [![CodeQL](https://github.com/DEADSEC-SECURITY/japscan-pdf-maker/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/DEADSEC-SECURITY/japscan-pdf-maker/actions/workflows/codeql-analysis.yml)
 
 ## 📝CONTRIBUTIONS
 
