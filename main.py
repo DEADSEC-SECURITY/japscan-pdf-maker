@@ -1,18 +1,25 @@
-import urllib.request
 import os
 import sys
-import PIL
 import img2pdf
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from pretty_downloader import download
 
 from utils.selenium_starter import start
-from utils.common import random_sleep
 
 BASE_PATH = os.path.dirname(__file__)
+PDF_FOLDER = os.path.join(BASE_PATH, 'pdfs')
+IMAGE_FOLDER = os.path.join(BASE_PATH, 'images')
+
+if not os.path.exists(PDF_FOLDER):
+    os.mkdir(PDF_FOLDER)
+
+if not os.path.exists(IMAGE_FOLDER):
+    os.mkdir(IMAGE_FOLDER)
 
 
-class Mike():
+class Mike:
 
     def __init__(self, url):
         self.title = None
@@ -59,8 +66,7 @@ class Mike():
 
     def save_img(self, img_url_list):
         for index, value in enumerate(img_url_list):
-            file = os.path.join(self.folder, f'{index}.jpg')
-            urllib.request.urlretrieve(str(value), file)
+            download(value, self.folder, f'{index}.jpg')
 
     def make_pdf(self):
         imgs = os.listdir(self.folder)
@@ -68,19 +74,19 @@ class Mike():
         imgs_names.sort()
         imgs = [os.path.join(self.folder, str(x) + '.jpg') for x in imgs_names]
         del imgs_names
-        pdf_file = os.path.join(BASE_PATH, 'pdfs', f'{self.title}.pdf')
+        pdf_file = os.path.join(PDF_FOLDER, f'{self.title}.pdf')
 
         with open(pdf_file, 'wb') as f:
             f.write(img2pdf.convert(imgs))
 
     def get_title(self):
-        self.title = self.browser.find_element_by_xpath('/html/body/div[1]/h1').text
+        self.title = self.browser.find_element(by=By.XPATH, value='/html/body/div[1]/h1').text
         self.title = self.title.replace(' ', '')
         self.title = self.title.replace(':', '')
         self.title = self.title.replace('/', '')
 
     def create_title_folder(self):
-        self.folder = os.path.join(BASE_PATH, 'images', self.title.replace(' ', '').replace(':', ''))
+        self.folder = os.path.join(IMAGE_FOLDER, self.title.replace(' ', '').replace(':', ''))
         if os.path.isdir(self.folder):
             os.remove(self.folder)
         os.mkdir(self.folder)
