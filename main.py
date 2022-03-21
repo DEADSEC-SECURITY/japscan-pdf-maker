@@ -11,6 +11,7 @@ from utils.common import random_sleep
 
 BASE_PATH = os.path.dirname(__file__)
 
+
 class Mike():
 
     def __init__(self, url):
@@ -86,6 +87,7 @@ class Mike():
         self.browser.quit()
         sys.exit()
 
+
 def check_local_repo():
     # Create the image folder if it doesnt exists
     images_folder = os.path.join(BASE_PATH, 'images')
@@ -99,6 +101,7 @@ def check_local_repo():
         print('Please go to https://chromedriver.chromium.org/downloads and download the driver for you system')
         print('Please save the driver binary to the drivers folder with the name "chromedriver.exe" for windows and "chromedriver" for linux and maxOS')
         sys.exit()
+
 
 if __name__ == '__main__':
     # Check if all folders are created properly
