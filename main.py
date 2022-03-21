@@ -15,6 +15,8 @@ BASE_PATH = os.path.dirname(__file__)
 class Mike():
 
     def __init__(self, url):
+        self.title = None
+        self.folder = None
         self.page = 1
         self.imgs = []
         self.url = url
@@ -51,7 +53,7 @@ class Mike():
             if x.response:
                 # Check if the request contains the base url for the images
                 if base_url in x.url:
-                    # Check if the image being viewd wasnt added yet
+                    # Check if the image being viewed wasn't added yet
                     if x.url not in self.imgs:
                         self.imgs.append(x.url)
 
@@ -89,12 +91,12 @@ class Mike():
 
 
 def check_local_repo():
-    # Create the image folder if it doesnt exists
+    # Create the image folder if it doesn't exist
     images_folder = os.path.join(BASE_PATH, 'images')
     if not os.path.isdir(images_folder):
         os.mkdir(images_folder)
 
-    # Create the drivers folder if it doesnt exist
+    # Create the drivers' folder if it doesn't exist
     drivers_folder = os.path.join(BASE_PATH, 'drivers')
     if not os.path.isdir(drivers_folder):
         os.mkdir(drivers_folder)
